@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <form action="{% url 'index' %}" method="post">
+      {% csrf_token %}
+      <label for="url">URL:</label>
+      <input type="text" name="url">
+      <button type="submit" name="button">agregar</button>
+    </form>
+    <br>
+    <ul>
+      {% for song in songs %}
+        <li>
+        </audio>{{song.title}}
+          <audio controls>
+            <source src="{{song.file_data.url}}" type="audio/mpeg">
+        </li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
