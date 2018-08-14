@@ -15,9 +15,15 @@
     <ul>
       {% for song in songs %}
         <li>
-        </audio>{{song.title}}
+          {% if song.thumbnail %}
+            <img src="{{song.thumbnail}}" height="64" width="64">
+          {% else %}
+            <img src="http://i.imgur.com/uZFXNjX.jpg" height="64" width="64"> 
+          {% endif %}
+          <p>{{song.title}}</p>
           <audio controls>
             <source src="{{song.file_data.url}}" type="audio/mpeg">
+          </audio>
         </li>
       {% endfor %}
     </ul>
